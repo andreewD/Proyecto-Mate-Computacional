@@ -11,7 +11,8 @@ from math import *
 WHITE = (255, 255, 255)
 RED = (255, 0, 0)
 BLACK = (0, 0, 0)
-
+COLORES = [(236,112,99),(142,68,173),(41,128,185),(26,188,156),(29,131,72),(241,196,15),(245,176,65),(229,152,102)]
+COLORES2 = [(255,0,255),(255,0,0),(0,255,0),(0,0,255),(0,255,255),(255,255,0)]
 WIDTH, HEIGHT = 800, 600
 pygame.display.set_caption("3D projection in pygame!")
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -130,5 +131,29 @@ while True:
         connect_points(p, (p+1) % 4, projected_points)
         connect_points(p+4, ((p+1) % 4) + 4, projected_points)
         connect_points(p, (p+4), projected_points)
+    
+    pygame.draw.polygon(screen,COLORES2[0],((
+        projected_points[0][0], projected_points[0][1]), (projected_points[1][0], projected_points[1][1]),
+    (projected_points[2][0], projected_points[2][1]), (projected_points[3][0], projected_points[3][1])))
+
+    pygame.draw.polygon(screen,COLORES2[1],((
+        projected_points[0][0], projected_points[0][1]), (projected_points[1][0], projected_points[1][1]),
+    (projected_points[5][0], projected_points[5][1]), (projected_points[4][0], projected_points[4][1])))
+
+    pygame.draw.polygon(screen,COLORES2[2],((
+        projected_points[3][0], projected_points[3][1]), (projected_points[0][0], projected_points[0][1]),
+    (projected_points[4][0], projected_points[4][1]), (projected_points[7][0], projected_points[7][1])))
+    
+    pygame.draw.polygon(screen,COLORES[3],((
+        projected_points[2][0], projected_points[2][1]), (projected_points[3][0], projected_points[3][1]),
+    (projected_points[7][0], projected_points[7][1]), (projected_points[6][0], projected_points[6][1])))
+
+    pygame.draw.polygon(screen,COLORES[4],((
+        projected_points[1][0], projected_points[1][1]), (projected_points[2][0], projected_points[2][1]),
+    (projected_points[6][0], projected_points[6][1]), (projected_points[5][0], projected_points[5][1])))
+
+    pygame.draw.polygon(screen,COLORES[5],((
+        projected_points[6][0], projected_points[6][1]), (projected_points[7][0], projected_points[7][1]),
+    (projected_points[4][0], projected_points[4][1]), (projected_points[5][0], projected_points[5][1])))
 
     pygame.display.update()
