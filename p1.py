@@ -127,11 +127,6 @@ while True:
         pygame.draw.circle(screen, RED, (x, y), 5)
         i += 1
 
-    for p in range(4):
-        connect_points(p, (p+1) % 4, projected_points)
-        connect_points(p+4, ((p+1) % 4) + 4, projected_points)
-        connect_points(p, (p+4), projected_points)
-    
     pygame.draw.polygon(screen,COLORES2[0],((
         projected_points[0][0], projected_points[0][1]), (projected_points[1][0], projected_points[1][1]),
     (projected_points[2][0], projected_points[2][1]), (projected_points[3][0], projected_points[3][1])))
@@ -155,5 +150,12 @@ while True:
     pygame.draw.polygon(screen,COLORES[5],((
         projected_points[6][0], projected_points[6][1]), (projected_points[7][0], projected_points[7][1]),
     (projected_points[4][0], projected_points[4][1]), (projected_points[5][0], projected_points[5][1])))
+    
+    for p in range(4):
+        connect_points(p, (p+1) % 4, projected_points)
+        connect_points(p+4, ((p+1) % 4) + 4, projected_points)
+        connect_points(p, (p+4), projected_points)
+    
+    
 
     pygame.display.update()
