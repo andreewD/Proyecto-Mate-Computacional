@@ -51,9 +51,9 @@ def connect_points(i, j, points):
         screen, BLACK, (points[i][0], points[i][1]), (points[j][0], points[j][1]))
 
 # Inputs para el eje a eleccion del usuario
-# u_x = 3/sqrt(50)
-# u_y = 4/sqrt(50)
-# u_z = 5/sqrt(50)
+u_x = 3/sqrt(50)
+u_y = 4/sqrt(50)
+u_z = 5/sqrt(50)
 
 clock = pygame.time.Clock()
 while True:
@@ -89,19 +89,19 @@ while True:
         [0, sin(angle), cos(angle)],
     ])
 
-    # rotation_any_axis = np.matrix([
-    #     [cos(angle)+pow(u_x, 2)*(1-cos(angle)),
-    #      u_x*u_y*(1-cos(angle)) - u_z*sin(angle),
-    #      u_x*u_z*(1-cos(angle))+u_y*sin(angle)],
+    rotation_any_axis = np.matrix([
+        [cos(angle)+pow(u_x, 2)*(1-cos(angle)),
+         u_x*u_y*(1-cos(angle)) - u_z*sin(angle),
+         u_x*u_z*(1-cos(angle))+u_y*sin(angle)],
 
-    #     [u_y*u_x*(1-cos(angle))+u_z*sin(angle),
-    #      cos(angle)+pow(u_y, 2)*(1-cos(angle)),
-    #      u_y*u_z*(1-cos(angle))-u_x*sin(angle)],
+        [u_y*u_x*(1-cos(angle))+u_z*sin(angle),
+         cos(angle)+pow(u_y, 2)*(1-cos(angle)),
+         u_y*u_z*(1-cos(angle))-u_x*sin(angle)],
 
-    #     [u_z*u_x*(1-cos(angle))-u_y*sin(angle),
-    #      u_z*u_y*(1-cos(angle)) + u_x*sin(angle),
-    #      cos(angle)+pow(u_z, 2)*(1-cos(angle))]
-    # ])
+        [u_z*u_x*(1-cos(angle))-u_y*sin(angle),
+         u_z*u_y*(1-cos(angle)) + u_x*sin(angle),
+         cos(angle)+pow(u_z, 2)*(1-cos(angle))]
+    ])
 
     angle += 0.01
 
